@@ -1,6 +1,6 @@
 # README for Run_analysis.R 
 
-Run_analysis.R creates a 'tidy' summary of a dataset collected from the accelerometers from the Samsung Galaxy S smartphone during experiments.
+```Run_analysis.R``` creates a 'tidy' summary of a dataset collected from the accelerometers from the Samsung Galaxy S smartphone during experiments.
 
 The purpose of this is to create a version of the dataset that is more readily understood and therefore quicker and easier to work with.
 
@@ -14,7 +14,7 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 ## Details
 
-Run_analysis.R joins the following tables from the original dataset together:
+```Run_analysis.R``` joins the following tables from the original dataset together:
 
 **Training Dataset**  
 train/y_train.txt  

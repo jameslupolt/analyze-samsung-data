@@ -16,7 +16,7 @@ subject_train <- read.table("train/subject_train.txt", header = F, stringsAsFact
 colnames(activity_labels) <- c('activityid', 'activity_name')
 colnames(y_train) <- c('testid')
 
-#For features, sanitize colnames first by removing  characters that require escaping in R object names
+#For features, sanitize colnames first by removing characters that require escaping in R object names
 group <- make.names(features[['V2']])
 #Also remove periods. Need to escape . so that it doesn't match the 'any single character' regex
 group <- gsub("\\.","",group)
@@ -39,7 +39,7 @@ subject_test <- read.table("test/subject_test.txt", header = F, stringsAsFactors
 #Set column names
 colnames(y_test) <- c('testid')
 colnames(subject_test) <- c('subjectid')
-#For features, sanitize colnames first by removing illegal characters. Re-use colname vector made above.
+#For features, sanitize colnames by removing characters that require escaping in R object names. Re-use colname vector made above.
 colnames(X_test) <- group
 
 #Join data frames
@@ -56,7 +56,6 @@ activity_data <- rbind(x_y_subject_train, x_y_subject_test)
 activity_data <- merge(activity_data, activity_labels, by.x="testid", by.y="activityid")
 
 #Project only the columns we are interested in here
-#activity_data <- activity_data[,c(grep('Row.names|activity_name|subjectid|std|mean',colnames(activity_data)))]
 activity_data <- activity_data[,c(grep('Row.names|activity_name|subjectid|std|mean$|mean.$',colnames(activity_data)))]
 
 #Now build a tidy dataset -- aggregate subjectid, activityid by mean() for each type of measurement
@@ -65,13 +64,8 @@ activity_data_tidy <- aggregate(activity_data, by=list(subjectid,activity_name),
 activity_data_tidy <- activity_data_tidy[,c(1,2,4:69)]
 # Label the grouped by columns
 colnames(activity_data_tidy)[1:2] <- c('subjectid', 'activity_name')
-# Validate that this produces accurate means. Test cases below -- both should return the same result
-#> mean(activity_data[activity_data$activity_name == "WALKING" & activity_data$subjectid == 1,"fBodyGyrostdY"])
-#[1] -0.03350816
-#> activity_data_tidy[activity_data_tidy$activity_name == "WALKING" & activity_data_tidy$subjectid == 1,"fBodyGyrostdY"]
-#[1] -0.03350816
 
-## Write a table to a file
+# Write a table to a file
 write.table(activity_data_tidy, file = "activity_data_tidy.txt", sep = ",", col.names = TRUE, row.names = FALSE)
 
 # How to read back in:
@@ -79,5 +73,3 @@ write.table(activity_data_tidy, file = "activity_data_tidy.txt", sep = ",", col.
 # Test that this worked:
 #backin[backin$activity_name == "WALKING" & backin$subjectid == 1,"fBodyGyrostdY"]
 #[1] -0.03350816
-
-

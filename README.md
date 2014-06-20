@@ -16,24 +16,24 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 Run_analysis.R joins the following tables from the original dataset together:
 
-** Training Dataset **
-train/y_train.txt
-train/X_train.txt
-subject_train.txt
+**Training Dataset**
+train/y_train.txt  
+train/X_train.txt  
+subject_train.txt  
 
-** Test Dataset **
-test/y_test.txt
-test/X_test.txt
-test/subject_test.txt
+**Test Dataset**
+test/y_test.txt  
+test/X_test.txt  
+test/subject_test.txt  
 
 The training and test datasets are merged together.
 
 The following tables are used as sources of column names:
 
-features.txt
-activity_labels.txt
+features.txt  
+activity_labels.txt  
 
-Column names are sanitized by removing characters that need to be escaped in R object names such as (, ), and -.
+Column names are sanitized by removing punctuation marks so that they don’t have to be escaped in R code.
 
 For each measurement, only columns showing a standard deviation or mean are retained. 
 
@@ -43,7 +43,7 @@ The tidy table is written to the file activity_data_tidy.txt.
 
 This can be read into R as follows:
 
-\# a <- read.table(file = "dataproj/activity_data_tidy.txt", sep = ",", header=T, stringsAsFactors=F)
+```# a <- read.table(file = "dataproj/activity_data_tidy.txt", sep = ",", header=T, stringsAsFactors=F)```
 
 For more specific details about the script, see the comments and code in the script.
 

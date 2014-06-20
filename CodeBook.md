@@ -65,7 +65,7 @@ tBodyGyroJerkMean
 subjectid            <— This is from the only column in the subject_test.txt and subject_train.txt in the original dataset  
 activity_name        <— This is from the second column of the file activity_labels.txt in the original dataset  
 
-**The remaining column names were obtained from features.txt and used to label the test and training data. Punctuation marks were removed from the column names so that the user doesn’t have to deal with escaping characters.**
+**The remaining variables were named according to the values in features.txt and used to label the test and training data. Punctuation marks were removed from the variable/column names so that the user doesn’t have to deal with escaping characters.**
 
 tBodyAccmeanX         
 tBodyAccmeanY  

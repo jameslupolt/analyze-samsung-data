@@ -39,11 +39,11 @@ For each measurement, only columns showing a standard deviation or mean are reta
 
 These are then averaged for each activity for each subject.
 
-The tidy table is written to the file activity_data_tidy.txt.
+The tidy table is then written to the file ```activity_data_tidy.txt```.
 
 This can be read into R as follows:
 
-```# a <- read.table(file = "dataproj/activity_data_tidy.txt", sep = ",", header=T, stringsAsFactors=F)```
+```# a <- read.table(file = "activity_data_tidy.txt", sep = ",", header=T, stringsAsFactors=F)```
 
 For more specific details about the script, see the comments and code in the script.
 

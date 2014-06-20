@@ -59,7 +59,7 @@ activity_data <- merge(activity_data, activity_labels, by.x="testid", by.y="acti
 activity_data <- activity_data[,c(grep('Row.names|activity_name|subjectid|std|mean$|mean.$',colnames(activity_data)))]
 
 #Now build a tidy dataset -- aggregate subjectid, activityid by mean() for each type of measurement
-activity_data_tidy <- aggregate(activity_data, by=list(subjectid,activity_name), FUN=mean)
+activity_data_tidy <- aggregate(activity_data, by=list(activity_data$subjectid,activity_data$activity_name), FUN=mean)
 # Discard unneeded columns: Row.names and original subjectid and activity_name (now NA due to the grouping)
 activity_data_tidy <- activity_data_tidy[,c(1,2,4:69)]
 # Label the grouped by columns

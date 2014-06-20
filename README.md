@@ -16,12 +16,12 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 
 Run_analysis.R joins the following tables from the original dataset together:
 
-**Training Dataset**
+**Training Dataset**  
 train/y_train.txt  
 train/X_train.txt  
 subject_train.txt  
 
-**Test Dataset**
+**Test Dataset**  
 test/y_test.txt  
 test/X_test.txt  
 test/subject_test.txt  
